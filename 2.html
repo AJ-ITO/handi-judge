@@ -1,0 +1,485 @@
+<div class="wp-block-stackable-columns alignfull stk-block-columns stk-block stk-b5f3941" data-block-id="b5f3941"><div class="stk-row stk-inner-blocks stk-block-content stk-content-align stk-b5f3941-column alignfull">
+<div class="wp-block-stackable-column stk-block-column stk-block-column--v3 stk-column stk-block-column--v2 stk-block stk-d2b1e58" data-block-id="d2b1e58"><div class="stk-column-wrapper stk-block-column__content stk-container stk-d2b1e58-container stk-hover-parent"><div class="has-text-align-center stk--block-orientation-horizontal stk-block-content stk-inner-blocks stk-d2b1e58-inner-blocks">
+<div class="stk-block-content stk-inner-blocks stk-d2b1e58-inner-blocks" style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+">
+
+    <title>World Para Powerlifting App</title>
+    <style>
+        body {
+background:black;
+            color: white;
+        }
+
+        .button {
+    width: 125px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        }
+
+        #good-lift-button {
+            background-color: white;
+            border: 2px solid black;
+        }
+        #reset-button {
+    background-color: green;
+    border: 2px solid black;
+}
+
+         .button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+        .circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+    float: left;
+    background-color: transparent;
+    border: 2px solid white;
+    box-sizing: border-box;
+}
+        .squares {
+            margin-top: 5px;
+	    margin-left: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 130px;
+            height: 130px;
+            padding: 5px;
+            border: 2px solid white;
+            border-radius: 10px;
+            #background-color: rgba(255, 255, 255, 0.2);
+            clear: both;
+        }
+
+        .squares span {
+            display: inline-block;
+            width: 47px;
+            height: 47px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .disabled {
+            background-color: gray;
+            cursor: default;
+        }
+    </style>
+
+
+
+    <script>
+var goodLiftClicked = false;
+var bpClicked = false;
+var csClicked = false;
+var ssClicked = false;
+var psClicked = false;
+
+function handleButtonClick(buttonId) {
+    var button = document.getElementById(buttonId);
+    var circle = document.getElementById("circle");
+    var squares = document.getElementById("squares");
+
+    if (buttonId === "good-lift-button" && !goodLiftClicked && !bpClicked && !csClicked && !ssClicked && !psClicked) {
+        circle.style.backgroundColor = "white";
+        squares.innerHTML = "";
+        goodLiftClicked = true;
+        disableButtons();
+    } else if (buttonId !== "good-lift-button" && !button.classList.contains("disabled") && !goodLiftClicked) {
+        circle.style.backgroundColor = "red";
+        var color = button.style.backgroundColor;
+        var square = "<span style='background-color: " + color + "'></span>";
+        squares.innerHTML += square;
+        disableButton(buttonId);
+        if (!goodLiftClicked) {
+            disableButton("good-lift-button");
+        }
+    }
+}
+
+function disableButtons() {
+    document.querySelectorAll(".button").forEach(function (button) {
+        if (button.id !== "good-lift-button") {
+            button.classList.add("disabled");
+        }
+    });
+}
+
+function disableButton(buttonId) {
+    document.getElementById(buttonId).classList.add("disabled");
+}
+
+function resetButtons() {
+    goodLiftClicked = false;
+    bpClicked = false;
+    csClicked = false;
+    ssClicked = false;
+    psClicked = false;
+
+    document.querySelectorAll(".button").forEach(function (button) {
+        button.classList.remove("disabled");
+    });
+
+    document.getElementById("circle").style.backgroundColor = "transparent";
+    document.getElementById("squares").innerHTML = "";
+}
+
+        var goodLiftClicked = false;
+        var bpClicked = false;
+        var csClicked = false;
+        var ssClicked = false;
+        var psClicked = false;
+
+        function handleButtonClick(buttonId) {
+            var button = document.getElementById(buttonId);
+            var circle = document.getElementById("circle");
+            var squares = document.getElementById("squares");
+
+            if (buttonId === "good-lift-button" && !goodLiftClicked) {
+                circle.style.backgroundColor = "white";
+                squares.innerHTML = "";
+                goodLiftClicked = true;
+                disableButtons();
+            } else if (buttonId !== "good-lift-button" && !button.classList.contains("disabled")) {
+                circle.style.backgroundColor = "red";
+                var color = button.style.backgroundColor;
+                var square = "<span style='background-color: " + color + "'></span>";
+                squares.innerHTML += square;
+                disableButton(buttonId);
+                if (!goodLiftClicked) {
+                    disableButton("good-lift-button");
+                }
+            }
+        }
+
+        function disableButtons() {
+            document.querySelectorAll(".button").forEach(function (button) {
+                if (button.id !== "good-lift-button") {
+                    button.classList.add("disabled");
+                }
+            });
+        }
+
+        function disableButton(buttonId) {
+            document.getElementById(buttonId).classList.add("disabled");
+        }
+    </script>
+
+
+  <h2 style="color: white">Handi Judge</h2><div id="good-lift-button" class="button" onclick="handleButtonClick('good-lift-button')" style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+">Good Lift</div>
+  <div class="button-container">
+  <div id="turquoise-button" class="button" style="background-color: turquoise" onclick="handleButtonClick('turquoise-button')">BP</div>
+  <div id="blue-button" class="button" style="background-color: blue" onclick="handleButtonClick('blue-button')">CB</div>
+  <div id="orange-button" class="button" style="background-color: orange" onclick="handleButtonClick('orange-button')">SS</div>
+  <div id="purple-button" class="button" style="background-color: purple" onclick="handleButtonClick('purple-button')">PS</div>
+</div>
+  <div id="circle" class="circle"></div>
+  <div id="squares" class="squares row"></div>
+
+  <script>
+    var goodLiftClicked = false;
+    var bpClicked = false;
+    var csClicked = false;
+    var ssClicked = false;
+    var psClicked = false;
+
+    function handleButtonClick(buttonId) {
+      var button = document.getElementById(buttonId);
+      var circle = document.getElementById("circle");
+      var squares = document.getElementById("squares");
+
+      if (buttonId === "good-lift-button" && !goodLiftClicked && !bpClicked && !csClicked && !ssClicked && !psClicked) {
+        circle.style.backgroundColor = "white";
+        squares.innerHTML = "";
+        goodLiftClicked = true;
+        disableButtons();
+      } else if (buttonId !== "good-lift-button" && !button.classList.contains("disabled") && !goodLiftClicked) {
+        circle.style.backgroundColor = "red";
+        var color = button.style.backgroundColor;
+        var square = "<span style='background-color: " + color + "'></span>";
+        squares.innerHTML += square;
+        disableButton(buttonId);
+
+        if (buttonId === "turquoise-button") {
+          bpClicked = true;
+        } else if (buttonId === "blue-button") {
+          csClicked = true;
+        } else if (buttonId === "orange-button") {
+          ssClicked = true;
+        } else if (buttonId === "purple-button") {
+          psClicked = true;
+        }
+      }
+    }
+
+    function disableButtons() {
+      document.querySelectorAll(".button").forEach(function(button) {
+        if (button.id !== "good-lift-button") {
+          button.classList.add("disabled");
+        }
+      });
+    }
+
+    function disableButton(buttonId) {
+      document.getElementById(buttonId).classList.add("disabled");
+    }
+  </script>
+
+    <div class="button" onclick="resetButtons()">Reset 🔁</div></div>
+
+
+
+<div class="wp-block-stackable-spacer stk-block-spacer stk--no-padding stk-block stk-5dc3310" data-block-id="5dc3310"></div>
+</div></div></div>
+
+
+
+<div class="wp-block-stackable-column stk-block-column stk-block-column--v3 stk-column stk-block-column--v2 stk-block stk-bad5fd9" data-block-id="bad5fd9"><div class="stk-column-wrapper stk-block-column__content stk-container stk-bad5fd9-container stk-hover-parent"><div class="has-text-align-center stk-block-content stk-inner-blocks stk-bad5fd9-inner-blocks">
+<title>Video Quiz</title>
+<style>
+    #quiz {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    ul#video-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul#video-list li {
+      margin-bottom: 10px;
+    }
+
+    .show-answer {
+    width: 130px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      margin-top: 10px;
+    }
+
+    .answer {
+      margin-top: 10px;
+      color: white;
+      font-size: 18px;
+    }
+
+
+
+
+
+  </style>
+
+
+  <div id="quiz">
+    <ul id="video-list">
+      <li style="display: block;">
+        <h3>Video 1</h3>
+        <div class="video-container">
+<figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/Pyeongtaek-2022_-M-80_-RR_ALANSAARI-Zayed-1-2.mp4"></video></figure>
+        </div>
+
+
+<button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">NO LIFT PRESS SEQUENCE
+</p>
+      </li>
+
+      <li style="display: none;">
+        <h2>Video 2</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/Pyeongtaek-2022_-M-54_-LR_CHOI-Keun-Jin-3.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">GOOD LIFT.</p>
+      </li>
+      <li style="display: none;">
+        <h2>Video 3</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/SS-CR.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">NO LIFT STOP SEQUENCE
+</p>
+      </li>
+ <li style="display: none;">
+        <h2>Video 4</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/BP-CR.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">NO LIFT BODY POSITION SEQUENCE
+</p>
+      </li>
+
+ <li style="display: none;">
+        <h2>Video 5</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/CB-PS-RR.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">NO LIFT CONTROLE BAR &amp; PRESS SEQUENCE
+
+</p>
+      </li>
+
+<li style="display: none;">
+        <h2>Video 6</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/SS-CR.mp4.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">NO LIFT STOP SEQUENCE
+</p>
+      </li>
+
+<li style="display: none;">
+        <h2>Video 7</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/GL-RR.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">GOOD LIFT
+</p>
+      </li>
+
+<li style="display: none;">
+        <h2>Video 8</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/SS-PS-RR.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">NO LIFT STOP SEQUENCE &amp; PRESS SEQUENCE
+
+</p>
+      </li>
+
+<li style="display: none;">
+        <h2>Video 9</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/SS-LR.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">NO LIFT STOP SEQUENCE
+
+</p>
+      </li>
+
+<li style="display: none;">
+        <h2>Video 10</h2>
+        <div class="video-container">
+  <figure class="wp-block-video"><video controls="" src="https://para.legtux.org/wp-content/uploads/2023/03/GL-LR.mp4"></video></figure>
+        </div>
+        <button class="show-answer">Show Answer</button>
+        <p class="answer" style="display:none;">GOOD LIFT
+
+</p>
+      </li>
+
+
+
+    </ul>
+    <div id="controls">
+  
+      <button id="prev">⏮ Previous</button>
+&nbsp;&nbsp;&nbsp;&nbsp;
+      <button id="next">NEXT ⏭</button>
+    </div>
+  </div>
+  <script>
+    // Initialize variables
+    let currentVideoIndex = 0;
+    const videoList = document.getElementById("video-list").getElementsByTagName("li");
+    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
+
+    // Show answer when the "Show Answer" button is clicked
+    document.querySelectorAll(".show-answer").forEach((button) => {
+      button.addEventListener("click", function() {
+        const answer = this.nextElementSibling;
+        answer.style.display = "block";
+
+      });
+    });
+
+    // Show the first video
+    showVideo(currentVideoIndex);
+
+    // Show the video at the given index and hide all other videos
+    function showVideo(index) {
+      for (let i = 0; i < videoList.length; i++) {
+        if (i === index) {
+          videoList[i].style.display = "block";
+        } else {
+          videoList[i].style.display = "none";
+        }
+      }
+    }
+
+// Go to the previous video
+    prevButton.addEventListener("click", function() {
+      if (currentVideoIndex > 0) {
+        currentVideoIndex--;
+        showVideo(currentVideoIndex);
+      }
+    });
+
+    // Go to the next video
+    nextButton.addEventListener("click", function() {
+      if (currentVideoIndex < videoList.length - 1) {
+        currentVideoIndex++;
+        showVideo(currentVideoIndex);
+      }
+    });
+
+
+
+  </script>
+</div></div></div>
+</div></div>
